@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "QuickActionsDemo",
+    "slug": "expo-quickactions-demo",
+    "scheme": "qa-demo",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "sdkVersion": "54.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
