@@ -1,28 +1,96 @@
-# Expo Router + TypeScript + Quick Actions (Demo)
+# Expo Router + TypeScript + Ações Rápidas (Demo)
 
-This is a minimal Expo project scaffold demonstrating:
-- Expo Router (file-based routing)
-- Tab navigation with three tabs/screens
-- Basic setup for Quick Actions using `expo-quick-actions`
-- TypeScript and a small, clean folder structure
+Este é um projeto **Expo** minimalista que demonstra:
 
-## Important notes
-- `expo-quick-actions` is a community package (Evan Bacon). To make Quick Actions available you may need to build a dev client or use EAS Build because quick actions require native configuration at build time. See the citations in the chat for references.
-- To run locally in Expo Go for development you can still use the navigation and deep-link handling. Quick Actions will work when you build a native binary (EAS) or use a custom dev client that includes the native module.
+- Uso do **Expo Router** (navegação baseada em arquivos)
+- **Navegação por abas** com três telas
+- Configuração básica para **Ações Rápidas (Quick Actions)** utilizando o pacote `expo-quick-actions`
+- Estrutura limpa com **TypeScript** e boas práticas de organização
 
-## How to run
-1. Install deps: `npm install` or `yarn`
-2. Start: `npm start`
-3. For quick actions to be fully functional on device, build with EAS or a custom dev client.
+---
 
-## Project structure
-- `app/` — Expo Router pages
-  - `(tabs)/_layout.tsx` — Tabs layout
-  - `(tabs)/home.tsx`, `profile.tsx`, `settings.tsx` — simple screens
-- `hooks/useQuickActions.ts` — hook that registers quick actions and listens to them
-- `app/_layout.tsx` — root layout (Stack)
+## 🧭 Visão geral do projeto
 
-## References
-- `expo-quick-actions` (GitHub) by Evan Bacon.  
-- Expo blog about quick actions and config plugins.
-- Expo Router documentation on deep linking and navigation.
+O aplicativo possui três telas acessadas por abas na parte inferior:
+- **Home**
+- **Profile**
+- **Settings**
+
+Cada tela exibe apenas o nome centralizado, conforme solicitado.
+
+O hook `useQuickActions` é responsável por lidar com *deep links* e abrir a tela correta quando o aplicativo é iniciado por um atalho (ação rápida).
+
+---
+
+## ⚙️ Estrutura de pastas
+
+```
+expo-quickactions-demo/
+│
+├── app/
+│   ├── _layout.tsx              # Layout raiz (Stack principal)
+│   └── (tabs)/                  # Grupo de abas (Tab Navigation)
+│       ├── _layout.tsx          # Layout das abas
+│       ├── home.tsx             # Tela Home
+│       ├── profile.tsx          # Tela Profile
+│       └── settings.tsx         # Tela Settings
+│
+├── hooks/
+│   └── useQuickActions.tsx      # Hook que trata as ações rápidas e deep links
+│
+├── package.json
+├── tsconfig.json
+├── app.json
+└── README.md
+```
+
+---
+
+## 🚀 Como executar o projeto
+
+1. **Instale as dependências**
+   ```bash
+   npm install
+   # ou
+   yarn
+   ```
+
+2. **Inicie o projeto**
+   ```bash
+   npm start
+   ```
+
+3. **Abra no seu dispositivo** com o app **Expo Go** (via QR Code)
+
+> ⚠️ As ações rápidas (Quick Actions) **só funcionam em builds nativos**, pois exigem configuração no código nativo.  
+> Para utilizá-las, é necessário compilar o app usando **EAS Build** ou um **Custom Dev Client**.
+
+---
+
+## 📱 O que são "Ações Rápidas"
+
+As **Ações Rápidas** permitem adicionar atalhos no ícone do aplicativo (pressionando e segurando o ícone).  
+Cada atalho pode abrir o app diretamente em uma tela específica — por exemplo, abrir a aba *Profile*.
+
+O pacote [`expo-quick-actions`](https://github.com/EvanBacon/expo-quick-actions) realiza essa configuração, criando os atalhos nativos (no Info.plist e AndroidManifest.xml) durante o build.
+
+---
+
+## 🧩 Boas práticas aplicadas
+
+- **Componentização** das telas e hooks
+- **TypeScript** para melhor legibilidade e tipagem
+- **Expo Router** com estrutura `(tabs)` para navegação clara
+- **Hook de inicialização** (`useQuickActions`) para tratar *deep links*
+- Código simples, limpo e fácil de entender
+
+---
+
+## 📚 Referências úteis
+
+- [Documentação do Expo Router](https://docs.expo.dev/router/introduction/)
+- [expo-quick-actions (GitHub)](https://github.com/EvanBacon/expo-quick-actions)
+- [Artigo do Expo sobre plugins de configuração](https://docs.expo.dev/config-plugins/introduction/)
+- [Deep Linking com Expo](https://docs.expo.dev/guides/deep-linking/)
+
+
